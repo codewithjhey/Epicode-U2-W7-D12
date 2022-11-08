@@ -10,6 +10,15 @@ window.onload = () => {
   showImage()
 }
 
+const hideCard = (event) => {
+  let btn = event.target.parentNode
+  let sCard = btn.parentNode
+  let bCard = sCard.parentNode
+  let lCard = bCard.parentNode
+  lCard.parentNode.removeChild(lCard)
+  console.log("pushed")
+}
+
 const loadNatureImages = () => {
   const options = {
     method: "GET",
@@ -43,7 +52,7 @@ const loadNatureImages = () => {
                       </button>
                       <button
                         type="button"
-                        class="btn btn-sm btn-outline-secondary"
+                        class="btn btn-sm btn-outline-secondary hideBtn"
                       >
                         Hide
                       </button>
@@ -53,6 +62,11 @@ const loadNatureImages = () => {
                 </div>
               </div>
             </div>`
+      }
+
+      const hideBtn = document.querySelectorAll(".hideBtn")
+      for (let i = 0; i < hideBtn.length; i++) {
+        hideBtn[i].addEventListener("click", hideCard)
       }
     })
 
@@ -92,7 +106,7 @@ const loadCatImages = () => {
                         </button>
                         <button
                           type="button"
-                          class="btn btn-sm btn-outline-secondary"
+                          class="btn btn-sm btn-outline-secondary hideBtn"
                         >
                           Hide
                         </button>
@@ -103,11 +117,12 @@ const loadCatImages = () => {
                 </div>
               </div>`
       }
+
+      const hideBtn = document.querySelectorAll(".hideBtn")
+      for (let i = 0; i < hideBtn.length; i++) {
+        hideBtn[i].addEventListener("click", hideCard)
+      }
     })
 
     .catch((err) => console.error(err))
-}
-
-const hidebtn = () => {
-  let clickHide = document.querySelectorAll("")
 }
